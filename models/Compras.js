@@ -1,6 +1,6 @@
 const { Sequelize, Model, DataTypes } = require("sequelize");
 
-const Producto = require('../models/Productos');
+
 const db = require('../config/db');
 
 const Compras = db.define('compras', {
@@ -9,8 +9,14 @@ const Compras = db.define('compras', {
         primaryKey: true,
         autoIncrement: true
     },
-    totalcompra: DataTypes.INTEGER,
-    numorden: DataTypes.STRING
+    orden: DataTypes.STRING,
+    imagen:  DataTypes.STRING,
+    nombre: DataTypes.STRING,
+    categoria: DataTypes.STRING,
+    descripcion: DataTypes.STRING,
+    precio: DataTypes.INTEGER,
+    cantidad: DataTypes.INTEGER,
+    total: DataTypes.INTEGER
+
 });
-Producto.hasMany(Compras);
 module.exports = Compras;

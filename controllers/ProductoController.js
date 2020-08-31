@@ -1,6 +1,8 @@
 const Producto = require('../models/Productos');
 const multer = require('multer');
 const shortid = require('shortid');
+const  Sequelize  = require('sequelize');
+const Op = Sequelize.Op;
 
 
 
@@ -27,5 +29,18 @@ exports.obtenerProducto = async (req, res, next) => {
     } catch (error) {
         console.log(error);
         next();  
+    }
+}
+exports.filtro = async (req, res, next) =>{
+    try {
+        console.log(req.params);
+        res.json( await Producto.findAll(
+            {where: 
+                {categoria:
+                    {[Op.like]:  req.params.term + '%'}
+                }
+            }));
+    } catch (error) {
+       next(); 
     }
 }

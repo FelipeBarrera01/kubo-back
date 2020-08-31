@@ -12,6 +12,7 @@ const Carrito = db.define('carrito', {
     categoria: DataTypes.STRING,
     imagen: DataTypes.STRING,
     descripcion:  DataTypes.STRING,
+    cantidad:  DataTypes.INTEGER,
     precio:  DataTypes.INTEGER
     
 });
